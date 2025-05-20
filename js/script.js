@@ -1,7 +1,6 @@
 // Script pour la navigation et les fonctionnalités interactives
-
-// Gestion du menu mobile
 document.addEventListener('DOMContentLoaded', function() {
+    // Gestion du menu mobile
     const menuToggle = document.getElementById('menu-toggle');
     const mainMenu = document.getElementById('main-menu');
     
@@ -34,6 +33,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Animations au défilement
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.module-card, .feature, .fiche, .calculateur, .quiz').forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
     
     // Gestion des calculateurs
     const calculateurs = document.querySelectorAll('.calculateur');
@@ -143,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h4>Résultat de l'estimation</h4>
                         <p>Chiffre d'affaires : ${chiffreAffaires.toLocaleString()} €</p>
                         <p>Coût de construction : ${coutTotal.toLocaleString()} €</p>
-                        <p>Frais annexes : ${frais.toLocaleString()} €</p>
+                        <p>Frais annexes :${frais.toLocaleString()} €</p>
                         <p>Marge promoteur : ${marge.toLocaleString()} €</p>
                         <p>Charge foncière maximale : ${Math.round(chargeFonciere).toLocaleString()} €</p>
                     `;
