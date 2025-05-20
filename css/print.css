@@ -1,0 +1,111 @@
+/* Styles spécifiques pour l'impression */
+@media print {
+  /* Masquer les éléments non nécessaires à l'impression */
+  nav, 
+  footer, 
+  button,
+  .cta-buttons,
+  .calculateur button,
+  .quiz .options,
+  #theme-toggle,
+  #menu-toggle {
+    display: none !important;
+  }
+  
+  /* Assurer que le contenu s'affiche correctement */
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Styles pour les titres */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+  
+  h1 {
+    font-size: 24pt;
+    margin-bottom: 20pt;
+  }
+  
+  h2 {
+    font-size: 18pt;
+    margin-top: 20pt;
+  }
+  
+  h3 {
+    font-size: 14pt;
+  }
+  
+  /* Éviter les sauts de page à l'intérieur des paragraphes */
+  p, blockquote, ul, ol, dl {
+    page-break-inside: avoid;
+  }
+  
+  /* Assurer que les images ne dépassent pas la page */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  
+  /* Afficher les URLs des liens */
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+  }
+  
+  /* Ne pas afficher l'URL pour les liens internes */
+  a[href^="#"]:after {
+    content: "";
+  }
+  
+  /* Styles pour les tableaux */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Styles pour les fiches pédagogiques */
+  .fiche {
+    page-break-before: always;
+    margin-top: 20pt;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  /* Assurer que le contenu principal prend toute la largeur */
+  .container {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Ajouter des sauts de page entre les sections principales */
+  section {
+    page-break-after: always;
+  }
+  
+  /* Styles spécifiques pour les modules et features */
+  .module-card, .feature {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  /* Ajouter un pied de page avec numéro de page */
+  @page {
+    margin: 2cm;
+  }
+}
