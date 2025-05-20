@@ -1,6 +1,16 @@
 // Script pour la navigation et les fonctionnalités interactives
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Gestion du menu mobile
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+    });
+
     const menuToggle = document.getElementById('menu-toggle');
     const mainMenu = document.getElementById('main-menu');
     
@@ -33,33 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // Initialisation des animations AOS
-    AOS.init({
-        duration: 800,
-        easing: 'ease-out',
-        once: true
-    });
-    
-    // Animations au défilement personnalisées
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.module-card, .feature, .fiche, .calculateur, .quiz').forEach(el => {
-        el.classList.add('fade-in');
-        observer.observe(el);
-    });
     
     // Gestion des calculateurs
     const calculateurs = document.querySelectorAll('.calculateur');

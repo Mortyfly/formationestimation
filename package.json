@@ -1,8 +1,7 @@
 {
   "name": "estimation-immobiliere",
-  "version": "1.0.0",
-  "description": "Formation à l'Estimation Immobilière en Ligne",
   "private": true,
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,8 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "aos": "^2.3.4",
-    "inter-ui": "^3.19.3"
+    "aos": "^2.3.4"
   },
   "devDependencies": {
     "vite": "^5.0.0"
