@@ -33,8 +33,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Initialisation des animations AOS
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out',
+        once: true
+    });
     
-    // Animations au défilement
+    // Animations au défilement personnalisées
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -162,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h4>Résultat de l'estimation</h4>
                         <p>Chiffre d'affaires : ${chiffreAffaires.toLocaleString()} €</p>
                         <p>Coût de construction : ${coutTotal.toLocaleString()} €</p>
-                        <p>Frais annexes :${frais.toLocaleString()} €</p>
+                        <p>Frais annexes : ${frais.toLocaleString()} €</p>
                         <p>Marge promoteur : ${marge.toLocaleString()} €</p>
                         <p>Charge foncière maximale : ${Math.round(chargeFonciere).toLocaleString()} €</p>
                     `;
